@@ -559,9 +559,11 @@ set_target_properties(niflib_static
    PROPERTIES
    COMPILE_DEFINITIONS NIFLIB_STATIC_LINK)
 
-# build the tests, this needs boost
-enable_testing()
-add_subdirectory(test)
+if(NIFLIB_ENABLE_TESTING)
+   # build the tests, this needs boost
+   enable_testing()
+   add_subdirectory(test)
+endif(NIFLIB_ENABLE_TESTING)
 
 # build documentation
 find_package(Doxygen)
